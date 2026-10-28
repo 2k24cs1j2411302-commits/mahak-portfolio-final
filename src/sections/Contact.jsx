@@ -1,0 +1,26 @@
+import { Mail } from 'lucide-react';
+import SectionHeading from '../components/SectionHeading.jsx';
+import Reveal from '../components/Reveal.jsx';
+import ContactForm from '../components/ContactForm.jsx';
+import { profile } from '../data/portfolio.js';
+
+export default function Contact() {
+  return (
+    <section id="contact" aria-labelledby="contact-title" className="section">
+      <Reveal>
+        <SectionHeading eyebrow="Let's talk" title="Contact Me" id="contact-title" />
+        <div className="grid gap-8 md:grid-cols-5">
+          <div className="space-y-4 text-muted md:col-span-2">
+            <p className="leading-relaxed">Have an internship, project or opportunity in mind? Send me a message and I will reply as soon as I can.</p>
+            <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 break-all text-sm font-medium text-rose hover:underline">
+              <Mail size={16} aria-hidden="true" /> {profile.email}
+            </a>
+          </div>
+          <div className="md:col-span-3">
+            <ContactForm />
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}

@@ -1,0 +1,59 @@
+import { Github, ExternalLink, FolderOpen } from 'lucide-react';
+import SectionHeading from '../components/SectionHeading.jsx';
+import Reveal from '../components/Reveal.jsx';
+import { projects } from '../data/portfolio.js';
+
+function ProjectCard({ project }) {
+  return (
+    <article className={`card flex flex-col ${project.example ? 'border-dashed' : ''}`}>
+      {project.example && (
+        <span className="mb-3 w-fit rounded-full bg-blush px-3 py-1 text-xs font-medium text-rose-dark">
+          Example: replace this card
+        </span>
+      )}
+      <h3 className="text-lg font-semibold">{project.title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{project.description}</p>
+      {project.tech?.length > 0 && (
+        <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tech stack">
+          {project.tech.map((t) => (
+            <li key={t} className="rounded-full bg-lavender px-3 py-1 text-xs text-ink">{t}</li>
+          ))}
+        </ul>
+      )}
+      {(project.github || project.demo) && (
+        <div className="mt-5 flex gap-4 text-sm">
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-rose hover:underline">
+              <Github size={15} aria-hidden="true" /> Code
+            </a>
+          )}
+          {project.demo && (
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-rose hover:underline">
+              <ExternalLink size={15} aria-hidden="true" /> Live demo
+            </a>
+          )}
+        </div>
+      )}
+    </article>
+  );
+}
+
+export default function Projects() {
+  return (
+    <section id="projects" aria-labelledby="projects-title" className="section">
+      <Reveal>
+        <SectionHeading eyebrow="My work" title="Projects" id="projects-title" />
+        {projects.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects.map((p) => <ProjectCard key={p.title} project={p} />)}
+          </div>
+        ) : (
+          <div className="card flex flex-col items-center py-12 text-center">
+            <FolderOpen size={36} className="mb-3 text-rose" aria-hidden="true" />
+            <p className="text-muted">No projects added yet. Projects will appear here once they are added in src/data/portfolio.js.</p>
+          </div>
+        )}
+      </Reveal>
+    </section>
+  );
+}

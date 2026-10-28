@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #fbf6f1;
+    color: #3f3648;
+  }
+  h1, h2, h3 { font-family: 'Lora', Georgia, serif; }
+  :focus-visible { outline: 2px solid #b8677f; outline-offset: 3px; }
+}
+
+@layer components {
+  .section { @apply py-20 px-6 sm:px-8 max-w-5xl mx-auto; }
+  .card {
+    @apply rounded-3xl border border-rose/10 bg-white/80 p-6 shadow-soft transition duration-300 hover:-translate-y-0.5;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-rose px-6 py-3 text-sm font-medium text-white
+           shadow-soft transition hover:bg-rose-dark focus:outline-none
+           disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-rose/30 bg-white/60 px-6 py-3 text-sm font-medium
+           text-ink transition hover:border-rose hover:text-rose;
+  }
+  .chip {
+    @apply rounded-full bg-blush px-3 py-1 text-sm text-ink;
+  }
+  .input {
+    @apply w-full rounded-2xl border border-rose/20 bg-white px-4 py-3 text-sm text-ink outline-none transition
+           focus:border-rose focus:ring-2 focus:ring-rose/20;
+  }
+}
