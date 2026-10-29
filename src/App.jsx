@@ -9,24 +9,38 @@ import CertificationsAchievements from './sections/CertificationsAchievements.js
 import Contact from './sections/Contact.jsx';
 import Footer from './sections/Footer.jsx';
 
+function Page({ id, children }) {
+  return (
+    <section id={id} className="flex min-h-screen snap-start flex-col justify-center px-6 py-20 sm:px-8">
+      <div className="mx-auto w-full max-w-3xl">{children}</div>
+    </section>
+  );
+}
+
 export default function App() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-cream">
-      <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2">
+    <div className="relative h-screen overflow-y-scroll snap-y snap-mandatory bg-cream">
+      <a href="#page-1" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2">
         Skip to content
       </a>
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <CodingProfiles />
-        <Education />
-        <CertificationsAchievements />
-        <Contact />
+        <Page id="page-1">
+          <Hero />
+          <About />
+        </Page>
+        <Page id="page-2">
+          <Skills />
+          <Projects />
+          <CodingProfiles />
+        </Page>
+        <Page id="page-3">
+          <Education />
+          <CertificationsAchievements />
+          <Contact />
+          <Footer />
+        </Page>
       </main>
-      <Footer />
     </div>
   );
 }
