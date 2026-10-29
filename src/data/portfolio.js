@@ -3,7 +3,7 @@ export const profile = {
   name: 'Mahak Gupta',
   shortName: 'Mahak',
   role: 'B.Tech CSE student, learning software development and AI/ML',
-  tagline: 'Hi, I am a Computer Science student from India. I am still learning, so I like building small things to understand how they really work.',
+  tagline: 'I build small things to understand how they really work.',
   email: '2K24.cs1j.2411302@gmail.com',
   location: 'India',
   resumeUrl: '/resume.pdf', // TODO: replace public/resume.pdf with your real resume PDF
@@ -16,14 +16,11 @@ export const socials = [
 ];
 
 export const aboutParagraphs = [
-  'I am a B.Tech Computer Science student at Pranveer Singh Institute of Technology (PSIT). I take things one step at a time. I enjoy writing clean code, and I like understanding how the different parts of a system fit together.',
-  'Right now I am working on data structures, object-oriented programming, and small projects with web technologies and machine learning. I am preparing for software development and AI/ML roles, and I am trying to get better every week.',
+  'B.Tech CSE student at PSIT Kanpur. I enjoy clean code and understanding how systems fit together, one step at a time.',
 ];
 
 export const careerGoals = [
-  'Find a software developer role where I can keep learning and build real features.',
-  'Build AI/ML projects that I can explain from start to finish, starting with the data and the model.',
-  'Get better at DSA and problem solving, one LeetCode problem at a time.',
+  'Software development and AI/ML roles, one project and one LeetCode problem at a time.',
 ];
 
 export const skillCategories = [
